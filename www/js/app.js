@@ -1,7 +1,7 @@
 /**
  * Created by r00fi0 on 6/10/16.
  */
-var app = angular.module('app', []);
+var app = angular.module('app', ['ionic', 'ionic.contrib.frost']);
 app.controller('Main', ['$scope', '$http', function ($scope, $http) {
     var apkFilter = function (artifact) {
         return artifact.type === 'apk'
