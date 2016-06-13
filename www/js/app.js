@@ -9,11 +9,13 @@ app.controller('Main', ['$scope', '$http', function ($scope, $http) {
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8080/restServices/archivaServices/browseService/artifacts/ru.softlab'
+        url: 'http://localhost:8080/restServices/archivaServices/browseService/artifacts/demo'
     }).then(function successCallback(response) {
         console.log(response);
 
-        $scope.artifacts = response.data.filter(apkFilter);
+        $scope.artifacts = response.data.filter(apkFilter).sort(function (a, b) {
+            return b.version > a.version
+        });
     }, function errorCallback(response) {
         console.log(response);
     });
