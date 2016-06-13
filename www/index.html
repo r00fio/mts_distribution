@@ -35,19 +35,62 @@
   'starter' is the name of this angular module (js/app.js)
 -->
 <body ng-app="app">
-<ion-pane ng-controller="Main" class="dark-overlay">
-    <ion-header-bar class="bar-clear">
-        <button class="button button-icon ion-ios7-close-empty close-icon pull-right">FT</button>
-    </ion-header-bar>
-    <ion-content class="content-flush has-header">
-        <div class="overlay-spacer"></div>
-        <ion-list>
-            <ion-item ng-repeat="artifact in artifacts" class="dark-item">
-                <a href="{{artifact.url}}" class="button button-icon ion-ios7-close-empty close-icon pull-right artifact ">{{artifact.id}}</a>
-            </ion-item>
-        </ion-list>
-    </ion-content>
-</ion-pane>
 
+
+<ion-nav-view></ion-nav-view>
+    <ion-view view-title="Intro">
+
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+            <ion-slide>
+                <ion-header-bar  align-title="center" class="bar-positive">
+                    <hi class="title">For Test</hi>
+                </ion-header-bar>
+                <ion-pane ng-controller="Main" class="dark-overlay">
+
+                    <ion-content class="content-flush has-header">
+                        <div class="overlay-spacer"></div>
+                        <ion-list>
+                            <ion-item ng-repeat="artifact in artifacts" class="dark-item">
+                                <a href="{{artifact.url}}"
+                                   class="button button-icon ion-ios7-close-empty close-icon pull-right artifact ">{{artifact.id}}</a>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ion-pane>
+            </ion-slide>
+            <ion-slide>
+                <ion-pane ng-controller="OPE" class="dark-overlay">
+                    <ion-header-bar  align-title="center" class="bar-positive">
+                        <hi class="title">OPE</hi>
+                    </ion-header-bar>
+                    <ion-content class="content-flush has-header">
+                        <div class="overlay-spacer"></div>
+                        <ion-list>
+                            <ion-item ng-repeat="artifact in artifacts" class="dark-item">
+                                <a href="{{artifact.url}}"
+                                   class="button button-icon ion-ios7-close-empty close-icon pull-right artifact ">{{artifact.id}}</a>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ion-pane>
+            </ion-slide>
+            <ion-slide>
+                <ion-pane ng-controller="Demo" class="dark-overlay">
+                    <ion-header-bar  align-title="center" class="bar-positive">
+                        <hi class="title">Demo</hi>
+                    </ion-header-bar>
+                    <ion-content class="content-flush has-header">
+                        <div class="overlay-spacer"></div>
+                        <ion-list>
+                            <ion-item ng-repeat="artifact in artifacts" class="dark-item">
+                                <a href="{{artifact.url}}"
+                                   class="button button-icon ion-ios7-close-empty close-icon pull-right artifact ">{{artifact.id}}</a>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ion-pane>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-view>
 </body>
 </html>
