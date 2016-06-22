@@ -31,6 +31,7 @@ app.controller('Main', ['$scope','$rootScope', '$http', function ($scope, $rootS
     };
     $rootScope.handleResponse = function (response) {
         return response.filter(function (artifact) {
+            
             return artifact.type === 'apk'
         }).sort(function (a, b) {
             return b.version > a.version
@@ -39,7 +40,7 @@ app.controller('Main', ['$scope','$rootScope', '$http', function ($scope, $rootS
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8080/restServices/archivaServices/browseService/artifacts/demo'
+        url: 'http://172.17.1.9:8080/restServices/archivaServices/browseService/artifacts/ft_android'
     }).then(function successCallback(response) {
         console.log(response);
 
@@ -61,11 +62,11 @@ app.controller('Main', ['$scope','$rootScope', '$http', function ($scope, $rootS
         });
     }
 }]);
-app.controller('OPE', ['$scope', '$http', function ($scope, $http) {
+app.controller('OPEAndroid', ['$scope','$rootScope', '$http', function ($scope, $rootScope, $http) {
 
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/restServices/archivaServices/browseService/artifacts/demo'
+            url: 'http://172.17.1.9:8080/restServices/archivaServices/browseService/artifacts/ope_android'
         }).then(function successCallback(response) {
             console.log(response);
 
@@ -74,11 +75,24 @@ app.controller('OPE', ['$scope', '$http', function ($scope, $http) {
             console.log(response);
         });
 }]);
-app.controller('Demo', ['$scope', '$http', function ($scope, $http) {
+app.controller('DemoAndroid', ['$scope','$rootScope', '$http', function ($scope, $rootScope, $http) {
 
     $http({
         method: 'GET',
-        url: 'http://localhost:8080/restServices/archivaServices/browseService/artifacts/demo'
+        url: 'http://172.17.1.9:8080/restServices/archivaServices/browseService/artifacts/demo_android'
+    }).then(function successCallback(response) {
+        console.log(response);
+
+        $scope.artifacts = $rootScope.handleResponse(response.date)
+    }, function errorCallback(response) {
+        console.log(response);
+    });
+}]);
+app.controller('FTIos', ['$scope','$rootScope', '$http', function ($scope, $rootScope, $http) {
+
+    $http({
+        method: 'GET',
+        url: 'http://172.17.1.9:8080/restServices/archivaServices/browseService/artifacts/ft_ios'
     }).then(function successCallback(response) {
         console.log(response);
 

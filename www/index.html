@@ -19,15 +19,15 @@
     <title>Ionic Seed App</title>
 
     <!-- ionic css -->
-    <link href="//code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet">
+    <link href="lib/ionic.min.css" rel="stylesheet">
 
-    <link href="//driftyco.github.io/ionic-code/contrib/ionic-contrib-frost/1.0.0/ionic.contrib.frost.css"
+    <link href="lib/ionic.contrib.frost.css"
           rel="stylesheet">
 
     <!-- angularjs scripts -->
-    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+    <script src="lib/ionic.bundle.min.js"></script>
 
-    <script src="//driftyco.github.io/ionic-code/contrib/ionic-contrib-frost/1.0.0/ionic.contrib.frost.js"></script>
+    <script src="lib/ionic.contrib.frost.js"></script>
 
 </head>
 
@@ -59,7 +59,7 @@
                 </ion-pane>
             </ion-slide>
             <ion-slide>
-                <ion-pane ng-controller="OPE" class="dark-overlay">
+                <ion-pane ng-controller="OPEAndroid" class="dark-overlay">
                     <ion-header-bar  align-title="center" class="bar-positive">
                         <hi class="title">OPE</hi>
                     </ion-header-bar>
@@ -75,7 +75,7 @@
                 </ion-pane>
             </ion-slide>
             <ion-slide>
-                <ion-pane ng-controller="Demo" class="dark-overlay">
+                <ion-pane ng-controller="DemoAndroid" class="dark-overlay">
                     <ion-header-bar  align-title="center" class="bar-positive">
                         <hi class="title">Demo</hi>
                     </ion-header-bar>
@@ -84,6 +84,22 @@
                         <ion-list>
                             <ion-item ng-repeat="artifact in artifacts" class="dark-item">
                                 <a href="{{artifact.url}}"
+                                   class="button button-icon ion-ios7-close-empty close-icon pull-right artifact ">{{artifact.id}}</a>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ion-pane>
+            </ion-slide>
+            <ion-slide>
+                <ion-pane ng-controller="FTIos" class="dark-overlay">
+                    <ion-header-bar  align-title="center" class="bar-positive">
+                        <hi class="title">FT-IOS</hi>
+                    </ion-header-bar>
+                    <ion-content class="content-flush has-header">
+                        <div class="overlay-spacer"></div>
+                        <ion-list>
+                            <ion-item ng-repeat="artifact in artifacts" class="dark-item">
+                                <a href="itms-services://?action=download-manifest&amp;url={{artifact.url}}"
                                    class="button button-icon ion-ios7-close-empty close-icon pull-right artifact ">{{artifact.id}}</a>
                             </ion-item>
                         </ion-list>
